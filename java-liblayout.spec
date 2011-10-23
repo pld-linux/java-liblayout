@@ -55,7 +55,7 @@ Javadoc for LibLayout.
 %prep
 %setup -qc
 %undos README.txt licence-LGPL.txt ChangeLog.txt
-find -name "*.jar" | xargs rm -v
+find -name "*.jar" | xargs -r rm -v
 install -d lib
 
 %build
