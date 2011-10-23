@@ -47,7 +47,6 @@ a DOM structure (although it does not rely on the W3C-DOM API).
 %package javadoc
 Summary:	Javadoc for LibLayout
 Group:		Documentation
-Requires:	%{name} = %{version}-%{release}
 Requires:	jpackage-utils
 
 %description javadoc
@@ -55,10 +54,9 @@ Javadoc for LibLayout.
 
 %prep
 %setup -qc
+%undos README.txt licence-LGPL.txt ChangeLog.txt
 find -name "*.jar" | xargs rm -v
 install -d lib
-
-%undos README.txt licence-LGPL.txt ChangeLog.txt
 
 %build
 build-jar-repository -s -p lib flute libloader librepository libxml libfonts \
@@ -70,7 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 
 # jars
 install -d $RPM_BUILD_ROOT%{_javadir}
-cp -a build/lib/%{srcname}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}-%{version}.jar
+cp -p build/lib/%{srcname}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}-%{version}.jar
 ln -s %{srcname}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{srcname}.jar
 
 # javadoc
@@ -89,8 +87,8 @@ ln -nfs %{srcname}-%{version} %{_javadocdir}/%{srcname}
 %files
 %defattr(644,root,root,755)
 %doc licence-LGPL.txt README.txt ChangeLog.txt
-%{_javadir}/%{srcname}.jar
 %{_javadir}/%{srcname}-%{version}.jar
+%{_javadir}/%{srcname}.jar
 
 %if %{with javadoc}
 %files javadoc
