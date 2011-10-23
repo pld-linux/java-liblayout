@@ -7,7 +7,7 @@
 Summary:	CSS based layouting framework
 Name:		java-%{srcname}
 Version:	0.2.10
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries/Java
 Source0:	http://downloads.sourceforge.net/jfreereport/liblayout-%{version}.zip
@@ -24,7 +24,6 @@ BuildRequires:	java-sac
 BuildRequires:	java-xml-commons
 BuildRequires:	jdk
 BuildRequires:	jpackage-utils
-BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.553
 Requires:	java-flute
@@ -34,7 +33,8 @@ Requires:	java-libloader >= 1.1.3
 Requires:	java-librepository >= 1.1.3
 Requires:	java-libxml
 Requires:	java-sac
-Requires:	java-xml-commons-apis
+# not sure about this dep
+Requires:	java-xml-commons
 Requires:	jpackage-utils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
