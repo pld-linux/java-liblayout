@@ -3,7 +3,6 @@
 %bcond_without	javadoc		# don't build javadoc
 
 %define		srcname		liblayout
-%include	/usr/lib/rpm/macros.java
 Summary:	CSS based layouting framework
 Name:		java-%{srcname}
 Version:	0.2.10
